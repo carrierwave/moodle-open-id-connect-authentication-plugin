@@ -1,4 +1,4 @@
-# Moodle Authentication Plugin for OpenID Connect (OIDC) compliant Identity Providers
+# Moodle Single Sign On (SSO) Authentication Plugin for OpenID Connect (OIDC) compliant Identity Providers
 *including* **Orchid - the identity management solution for higher education providers** http://get-orchid.com
 
 ## OpenID Connect Authentication Plugin for Moodle
