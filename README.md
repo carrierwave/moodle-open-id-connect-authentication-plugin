@@ -1,13 +1,11 @@
-# Moodle Plugins for Microsoft Services
-*including* **Office 365** *and other Microsoft services*
+# Moodle Authentication Plugin for OpenID Connect (OIDC) compliant Identity Providers
+*including* **Orchid - the identity management solution for higher education providers** http://get-orchid.com
 
-## OpenID Connect Authentication Plugin.
+## OpenID Connect Authentication Plugin for Moodle
 
 The OpenID Connect plugin provides single-sign-on functionality using configurable identity providers.
 
-This is part of the suite of Office 365 plugins for Moodle.
-
-This repository is updated with stable releases. To follow active development, see: https://github.com/MSOpenTech/o365-moodle
+This is a OpenID Connect standards-compliant fork of the microsoft-initiated plugin.
 
 ## Installation.
 
@@ -17,16 +15,8 @@ This repository is updated with stable releases. To follow active development, s
 4. To configure the plugin, from the Moodle Administration block, go to Site Administration > Plugins > Authentication > Manage Authentication.
 5. Click the icon to enable the plugin, then visit the settings page to configure the plugin. Follow the directions below each setting.
 
-For more documentation, visit https://docs.moodle.org/29/en/Office365
-
-# Contributing
-
-Before we can accept your pull request, you'll need to electronically complete Microsoft Open Tech's [Contributor License Agreement](https://cla2.msopentech.com/). If you've done this for other Microsoft Open Tech projects, then you're already covered.
-
-[Why a CLA?](https://www.gnu.org/licenses/why-assign.html) (from the FSF)
+For more documentation, visit https://get-orchid.com
 
 # Copyright
 
-&copy; Microsoft Open Technologies, Inc.  Code for this plugin is licensed under the GPLv3 license.
-
-Any Microsoft trademarks and logos included in these plugins are property of Microsoft and should not be reused, redistributed, modified, repurposed, or otherwise altered or used outside of this plugin.
+&copy; Microsoft Open Technologies, Inc. and Carrierwave Holdings B.V. Code for this plugin is licensed under the GPLv3 license.
