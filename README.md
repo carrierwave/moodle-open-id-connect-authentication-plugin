@@ -19,4 +19,8 @@ For more documentation, visit https://get-orchid.com
 
 # Copyright
 
-&copy; Microsoft Open Technologies, Inc. and Carrierwave Holdings B.V. Code for this plugin is licensed under the GPLv3 license.
+&copy; Microsoft Open Technologies, Inc. 
+
+&copy; Carrierwave Holdings B.V. 
+
+Code for this plugin is licensed under the GPLv3 license.
