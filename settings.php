@@ -46,6 +46,11 @@ $configdesc = get_string('cfg_tokenendpoint_desc', 'auth_oidc');
 $configdefault = 'https://login.microsoftonline.com/common/oauth2/token';
 $settings->add(new admin_setting_configtext('auth_oidc/tokenendpoint', $configkey, $configdesc, $configdefault, PARAM_TEXT));
 
+$configkey = get_string('cfg_userinfoendpoint_key', 'auth_oidc');
+$configdesc = get_string('cfg_userinfoendpoint_desc', 'auth_oidc');
+$configdefault = 'https://login.microsoftonline.com/common/oauth2/userinfo';
+$settings->add(new admin_setting_configtext('auth_oidc/userinfoendpoint', $configkey, $configdesc, $configdefault, PARAM_TEXT));
+
 $configkey = get_string('cfg_oidcresource_key', 'auth_oidc');
 $configdesc = get_string('cfg_oidcresource_desc', 'auth_oidc');
 $configdefault = 'https://graph.windows.net';

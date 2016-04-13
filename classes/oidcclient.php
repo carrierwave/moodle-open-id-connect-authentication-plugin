@@ -250,4 +250,28 @@ class oidcclient {
         $returned = $this->httpclient->post($this->endpoints['token'], $params);
         return \auth_oidc\utils::process_json_response($returned, ['id_token' => null]);
     }
+
+
+
+    /**
+     * Exchange an access token for userinfo.
+     *
+     * @param string $userinfoendpoint The userinfo endpoint URI.
+     * @param string $access_token An authorization code.
+     * @return array Received parameters.
+     */
+    public function userinforequest($access_token) {
+        if (empty($this->endpoints['userinfo'])) {
+            throw new \moodle_exception('erroroidcclientnouserinfoendpoint', 'auth_oidc');
+        }
+
+        $params = [
+            'schema' => 'openid',
+            'access_token' => $access_token,
+        ];
+
+        $returned = $this->httpclient->get($this->endpoints['userinfo'], $params);
+        return \auth_oidc\utils::process_json_response($returned);
+    }
+
 }

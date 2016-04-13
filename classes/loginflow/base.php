@@ -296,7 +296,7 @@ class base {
         $client = new \auth_oidc\oidcclient($this->httpclient);
         $client->setcreds($clientid, $clientsecret, $redirecturi, $resource);
 
-        $client->setendpoints(['auth' => $this->config->authendpoint, 'token' => $this->config->tokenendpoint]);
+        $client->setendpoints(['auth' => $this->config->authendpoint, 'token' => $this->config->tokenendpoint, 'userinfo' => $this->config->userinfoendpoint]);
         return $client;
     }
 

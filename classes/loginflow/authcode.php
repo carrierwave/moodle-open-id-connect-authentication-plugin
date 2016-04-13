@@ -258,8 +258,12 @@ class authcode extends \auth_oidc\loginflow\base {
             }
         }
 
+        // get userinfo
+        $client = $this->get_oidcclient();
+        $userinfoparams = $client->userinforequest($tokenparams['access_token']);
         // Create token data.
-        $tokenrec = $this->createtoken($oidcuniqid, $USER->username, $authparams, $tokenparams, $idtoken);
+        //$tokenrec = $this->createtoken($oidcuniqid, $USER->username, $authparams, $tokenparams, $idtoken);
+        $tokenrec = $this->createtoken($oidcuniqid, $userinfoparams['username'], $authparams, $tokenparams, $idtoken);
 
         $eventdata = [
             'objectid' => $USER->id,
@@ -324,18 +328,23 @@ class authcode extends \auth_oidc\loginflow\base {
             $username = $tokenrec->username;
             $this->updatetoken($tokenrec->id, $authparams, $tokenparams);
         } else {
+            // get userinfo
+            $client = $this->get_oidcclient();
+            $userinfoparams = $client->userinforequest($tokenparams['access_token']);
             // Use 'upn' if available for username (Azure-specific), or fall back to lower-case oidcuniqid.
             $username = $idtoken->claim('upn');
             if (empty($username)) {
-                $username = $oidcuniqid;
+                //$username = $oidcuniqid;
+                $username = $userinfoparams['username'];
             }
             $matchedwith = $this->check_for_matched($username);
             if (!empty($matchedwith)) {
                 $matchedwith->aadupn = $username;
                 throw new \moodle_exception('errorusermatched', 'local_o365', null, $matchedwith);
             }
-            $username = trim(\core_text::strtolower($username));
-            $tokenrec = $this->createtoken($oidcuniqid, $username, $authparams, $tokenparams, $idtoken);
+            //$username = trim(\core_text::strtolower($username));
+            //$tokenrec = $this->createtoken($oidcuniqid, $username, $authparams, $tokenparams, $idtoken);
+            $tokenrec = $this->createtoken($oidcuniqid, $userinfoparams['username'], $authparams, $tokenparams, $idtoken);
         }
 
         $existinguserparams = ['username' => $username, 'mnethostid' => $CFG->mnet_localhost_id];

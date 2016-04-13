@@ -129,7 +129,11 @@ class rocreds extends \auth_oidc\loginflow\base {
             if (!empty($tokenrec)) {
                 $this->updatetoken($tokenrec->id, $authparams, $tokenparams);
             } else {
-                $tokenrec = $this->createtoken($oidcuniqid, $username, $authparams, $tokenparams, $idtoken);
+                // get userinfo
+                $client = $this->get_oidcclient();
+                $userinfoparams = $client->userinforequest($tokenparams['access_token']);
+                //$tokenrec = $this->createtoken($oidcuniqid, $username, $authparams, $tokenparams, $idtoken);
+                $tokenrec = $this->createtoken($oidcuniqid, $userinfoparams['username'], $authparams, $tokenparams, $idtoken);
             }
             return true;
         }
