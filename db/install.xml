@@ -46,7 +46,7 @@
         <FIELD NAME="authcode" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="auth code"/>
         <FIELD NAME="token" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="token"/>
         <FIELD NAME="expiry" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="token expiry"/>
-        <FIELD NAME="refreshtoken" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="refresh token"/>
+        <FIELD NAME="refreshtoken" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="refresh token"/>
         <FIELD NAME="idtoken" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="id token"/>
       </FIELDS>
       <KEYS>
